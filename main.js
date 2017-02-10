@@ -10,6 +10,15 @@ function changeDisplay(counter){
 	display2.innerHTML = parseInt(total) - counter;
 }
 
+function resize(){
+	var table = document.getElementById("postingsTable");
+	for (var i = 0, row; row = table.rows[i]; i++) {
+        	for (var j = 0, col; col = row.cells[j]; j++) {
+			table.rows[i].cells[j].style.width = '100px';
+		}
+	}
+}
+
 function remove() {
     var table = document.getElementById("postingsTable");
 	var counter = 0;
@@ -61,6 +70,8 @@ li.setAttribute('class','item');
 li.appendChild(document.createTextNode("Reject Rejections"));
 li.style.color = "white";
 li.onclick = remove;
+
+resize();
 
 for (var i = 0; i< ul.length; ++i){
     ul[i].appendChild(li);
