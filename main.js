@@ -10,16 +10,54 @@ function changeDisplay(counter){
 	display2.innerHTML = parseInt(total) - counter;
 }
 
-function resize(){
-	var table = document.getElementById("postingsTable");
-	for (var i = 0, row; row = table.rows[i]; i++) {
-        	for (var j = 0, col; col = row.cells[j]; j++) {
-			table.rows[i].cells[j].style.width = '100px';
-		}
-	}
+function addNumCol(){
+    var table = document.getElementById("postingsTable");
+	for (var i = 0; i < table.rows.length; i++) {
+        var x = table.rows[i].insertCell(0);
+        var newText  = document.createTextNode(i);
+        x.appendChild(newText);
+    }
 }
 
-function remove() {
+
+function removeCol(){
+    var table = document.getElementById("postingsTable");
+    if (table.rows[0].cells.length>=12){
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (j==1){
+                    table.rows[i].deleteCell(j);
+                }
+            }
+        }
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (j==3){
+                    table.rows[i].deleteCell(j);
+                }
+            }
+        }
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (j==6){
+                    table.rows[i].deleteCell(j);
+                }
+            }
+        }
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (j==7){
+                    table.rows[i].deleteCell(j);
+                }
+            }
+       }
+        addNumCol();
+    }
+    
+}
+
+
+function removeRejects() {
     var table = document.getElementById("postingsTable");
 	var counter = 0;
     for (var i = 0, row; row = table.rows[i]; i++) {
@@ -65,14 +103,37 @@ function remove() {
 
 
 var ul = document.getElementsByClassName("childMenu1 nav nav-list");
-var li = document.createElement('li');
-li.setAttribute('class','item');
-li.appendChild(document.createTextNode("Reject Rejections"));
-li.style.color = "white";
-li.onclick = remove;
-
-resize();
+var rejectRejections = document.createElement('li');
+rejectRejections.setAttribute('class','item');
+rejectRejections.appendChild(document.createTextNode("Reject Rejections"));
+rejectRejections.style.color = "white";
+rejectRejections.onclick = removeRejects;
 
 for (var i = 0; i< ul.length; ++i){
-    ul[i].appendChild(li);
+    ul[i].appendChild(rejectRejections);
 }
+
+
+var removeCols = document.createElement('li');
+removeCols.setAttribute('class','item');
+removeCols.appendChild(document.createTextNode("Remove Clutter"));
+removeCols.style.color = "white";
+removeCols.addEventListener('click',removeCol);
+
+for (var i = 0; i< ul.length; ++i){
+    ul[i].appendChild(removeCols);
+}
+
+
+//var addNum = document.createElement('li');
+//addNum.setAttribute('class','item');
+//addNum.appendChild(document.createTextNode("Add Num Col"));
+//addNum.style.color = "white";
+//addNum.addEventListener('click',addNumCol);
+//
+//for (var i = 0; i< ul.length; ++i){
+//    ul[i].appendChild(addNum);
+//}
+
+
+
