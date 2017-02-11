@@ -50,10 +50,16 @@ function removeCol(){
                     table.rows[i].deleteCell(j);
                 }
             }
-       }
+        }
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (j==8){
+                    table.rows[i].deleteCell(j);
+                }
+            }
+        }
         addNumCol();
     }
-    
 }
 
 
@@ -62,43 +68,43 @@ function removeRejects() {
 	var counter = 0;
     for (var i = 0, row; row = table.rows[i]; i++) {
         for (var j = 0, col; col = row.cells[j]; j++) {
-				if(table.rows[i].cells[j].innerHTML.includes("Selected for Interview")){
-                  break;
-               }
-               else if(table.rows[i].cells[j].innerHTML.includes("Filled")){
-                  table.deleteRow(i);
-                  i--;
-				  counter++;
-                  break;
-               }
-               else if(table.rows[i].cells[j].innerHTML.includes("Emp Rankings Finalized")){
-                 table.deleteRow(i);
-                 i--;
-				 counter++;
-                 break;
-               }
-               else if(table.rows[i].cells[j].innerHTML.includes("Interview Complete")){
-                 table.deleteRow(i);
-                 i--;
-				 counter++;
-                 break;
-               }
-               else if(table.rows[i].cells[j].innerHTML.includes("Interview Selections Complete")){
-                 table.deleteRow(i);
-                 i--;
-				 counter++;
-                 break;
-               }
-			   else if(table.rows[i].cells[j].innerHTML.includes("Cancel")){
-                 table.deleteRow(i);
-                 i--;
-				 counter++;
-                 break;
-                  }
-               }
+            if(table.rows[i].cells[j].innerHTML.includes("Selected for Interview")){
+                break;
+            }
+            else if(table.rows[i].cells[j].innerHTML.includes("Filled")){
+                table.deleteRow(i);
+                i--;
+                counter++;
+                break;
+            }
+            else if(table.rows[i].cells[j].innerHTML.includes("Emp Rankings Finalized")){
+                table.deleteRow(i);
+                i--;
+                counter++;
+                break;
+            }
+            else if(table.rows[i].cells[j].innerHTML.includes("Interview Complete")){
+                table.deleteRow(i);
+                i--;
+                counter++;
+                break;
+            }
+            else if(table.rows[i].cells[j].innerHTML.includes("Interview Selections Complete")){
+                table.deleteRow(i);
+                i--;
+                counter++;
+                break;
+            }
+            else if(table.rows[i].cells[j].innerHTML.includes("Cancel")){
+                table.deleteRow(i);
+                i--;
+                counter++;
+                break;
+            }
         }
-		changeDisplay(counter);
     }
+		changeDisplay(counter);
+}
 	
 
 
@@ -123,17 +129,3 @@ removeCols.addEventListener('click',removeCol);
 for (var i = 0; i< ul.length; ++i){
     ul[i].appendChild(removeCols);
 }
-
-
-//var addNum = document.createElement('li');
-//addNum.setAttribute('class','item');
-//addNum.appendChild(document.createTextNode("Add Num Col"));
-//addNum.style.color = "white";
-//addNum.addEventListener('click',addNumCol);
-//
-//for (var i = 0; i< ul.length; ++i){
-//    ul[i].appendChild(addNum);
-//}
-
-
-
