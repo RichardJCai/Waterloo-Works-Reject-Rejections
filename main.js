@@ -19,29 +19,18 @@ function addNumCol(){
     }
 }
 
-
 function removeCol(){
     var table = document.getElementById("postingsTable");
     if (table.rows[0].cells.length>=12){
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            table.rows[i].deleteCell(1);
-        }
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            table.rows[i].deleteCell(3);
-        }
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            table.rows[i].deleteCell(6);
-        }
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            table.rows[i].deleteCell(7);
-        }
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            table.rows[i].deleteCell(8);
+        var dCols = [1,3,6,7,8];
+        for(var i=0; i<dCols.length;i++){
+            for (var j = 0, row; row = table.rows[j]; j++) {
+                table.rows[j].deleteCell(dCols[i]);
+            }
         }
         addNumCol();
     }
 }
-
 
 function removeRejects() {
     var table = document.getElementById("postingsTable");
@@ -92,26 +81,21 @@ function removeRejects() {
     changeDisplay(counter);
 }
 	
-
-
 var ul = document.getElementsByClassName("childMenu1 nav nav-list");
 var rejectRejections = document.createElement('li');
 rejectRejections.setAttribute('class','item');
 rejectRejections.appendChild(document.createTextNode("Reject Rejections"));
 rejectRejections.style.color = "white";
 rejectRejections.onclick = removeRejects;
-
 for (var i = 0; i< ul.length; ++i){
     ul[i].appendChild(rejectRejections);
 }
-
 
 var removeCols = document.createElement('li');
 removeCols.setAttribute('class','item');
 removeCols.appendChild(document.createTextNode("Remove Clutter"));
 removeCols.style.color = "white";
 removeCols.addEventListener('click',removeCol);
-
 for (var i = 0; i< ul.length; ++i){
     ul[i].appendChild(removeCols);
 }
