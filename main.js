@@ -99,8 +99,6 @@ function removeRejects() {
         }
 		changeDisplay(counter);
     }
-	
-
 
 var ul = document.getElementsByClassName("childMenu1 nav nav-list");
 var rejectRejections = document.createElement('li');
@@ -123,17 +121,3 @@ removeCols.addEventListener('click',removeCol);
 for (var i = 0; i< ul.length; ++i){
     ul[i].appendChild(removeCols);
 }
-
-
-//var addNum = document.createElement('li');
-//addNum.setAttribute('class','item');
-//addNum.appendChild(document.createTextNode("Add Num Col"));
-//addNum.style.color = "white";
-//addNum.addEventListener('click',addNumCol);
-//
-//for (var i = 0; i< ul.length; ++i){
-//    ul[i].appendChild(addNum);
-//}
-
-
-
