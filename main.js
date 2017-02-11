@@ -24,39 +24,19 @@ function removeCol(){
     var table = document.getElementById("postingsTable");
     if (table.rows[0].cells.length>=12){
         for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                if (j==1){
-                    table.rows[i].deleteCell(j);
-                }
-            }
+            table.rows[i].deleteCell(1);
         }
         for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                if (j==3){
-                    table.rows[i].deleteCell(j);
-                }
-            }
+            table.rows[i].deleteCell(3);
         }
         for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                if (j==6){
-                    table.rows[i].deleteCell(j);
-                }
-            }
+            table.rows[i].deleteCell(6);
         }
         for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                if (j==7){
-                    table.rows[i].deleteCell(j);
-                }
-            }
+            table.rows[i].deleteCell(7);
         }
         for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                if (j==8){
-                    table.rows[i].deleteCell(j);
-                }
-            }
+            table.rows[i].deleteCell(8);
         }
         addNumCol();
     }
@@ -103,7 +83,13 @@ function removeRejects() {
             }
         }
     }
-		changeDisplay(counter);
+    if (table.rows[0].cells[0].innerHTML.includes(0)){
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            table.rows[i].deleteCell(0);
+        }
+        addNumCol();
+    }
+    changeDisplay(counter);
 }
 	
 
