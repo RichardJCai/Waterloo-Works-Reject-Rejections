@@ -5,7 +5,7 @@ function changeDisplay(counter){
 		total = display[i].innerHTML;
 		display[i].innerHTML = (parseInt(total) - counter);
 	}
-	
+
 	var display2 = document.getElementById("totalOverAllPacks") ;
 	display2.innerHTML = parseInt(total) - counter;
 }
@@ -80,10 +80,11 @@ function removeRejects() {
     }
     changeDisplay(counter);
 }
-	
+
 var ul = document.getElementsByClassName("childMenu1 nav nav-list");
 var rejectRejections = document.createElement('li');
 rejectRejections.setAttribute('class','item');
+rejectRejections.className = "listElements";
 rejectRejections.appendChild(document.createTextNode("Reject Rejections"));
 rejectRejections.style.color = "white";
 rejectRejections.onclick = removeRejects;
@@ -93,6 +94,7 @@ for (var i = 0; i< ul.length; ++i){
 
 var removeCols = document.createElement('li');
 removeCols.setAttribute('class','item');
+removeCols.className = "listElements";
 removeCols.appendChild(document.createTextNode("Remove Clutter"));
 removeCols.style.color = "white";
 removeCols.addEventListener('click',removeCol);

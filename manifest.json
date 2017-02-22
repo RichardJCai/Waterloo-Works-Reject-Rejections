@@ -3,11 +3,12 @@
 
     "name": "Waterloo Works: Reject Rejections",
     "description": "Filter out postings that you were not selected for on Waterloo works",
-    "version": "0.0.0.4",
+    "version": "0.0.0.6",
     "author": "Richard Cai",
-	
+
     "content_scripts": [{
       "js": ["main.js"],
-      "matches": ["https://waterlooworks.uwaterloo.ca/*"]
+      "matches": ["https://waterlooworks.uwaterloo.ca/*"],
+      "css": ["styles.css"]
     }]
   }

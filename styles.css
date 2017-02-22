@@ -1,0 +1,8 @@
+.listElements {
+  cursor: pointer;
+  height: auto;
+}
+
+.listElements:hover{
+  background-color: grey;
+}
