@@ -22,7 +22,8 @@ function addNumCol(){
 function removeCol(){
     var table = document.getElementById("postingsTable");
     if (table.rows[0].cells.length>=12){
-        var dCols = [1,3,6,7,8];
+        // removes ID, Division, Level, Application Deadline and Empty Column
+        var dCols = [1, 3, 7, 8, 8];
         for(var i=0; i<dCols.length;i++){
             for (var j = 0, row; row = table.rows[j]; j++) {
                 table.rows[j].deleteCell(dCols[i]);
