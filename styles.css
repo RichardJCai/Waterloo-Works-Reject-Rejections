@@ -6,3 +6,9 @@
 .listElements:hover{
   background-color: grey;
 }
+
+.removeButton{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

@@ -82,23 +82,13 @@ function removeRejects() {
     changeDisplay(counter);
 }
 
-var ul = document.getElementsByClassName("childMenu1 nav nav-list");
-var rejectRejections = document.createElement('li');
-rejectRejections.setAttribute('class','item');
-rejectRejections.className = "listElements";
-rejectRejections.appendChild(document.createTextNode("Reject Rejections"));
-rejectRejections.style.color = "white";
-rejectRejections.onclick = removeRejects;
-for (var i = 0; i< ul.length; ++i){
-    ul[i].appendChild(rejectRejections);
-}
-
-var removeCols = document.createElement('li');
-removeCols.setAttribute('class','item');
-removeCols.className = "listElements";
-removeCols.appendChild(document.createTextNode("Remove Clutter"));
-removeCols.style.color = "white";
-removeCols.addEventListener('click',removeCol);
-for (var i = 0; i< ul.length; ++i){
-    ul[i].appendChild(removeCols);
-}
+var div = document.querySelector("#filterForm > div");
+var rejectRejections = document.createElement('button');
+rejectRejections.innerHTML = "Reject Rejections"
+rejectRejections.type = "button";
+rejectRejections.className = "btn btn-small";
+// rejectRejections.onclick = removeRejects()
+rejectRejections.addEventListener ("click", function() {
+    removeRejects();
+});
+div.appendChild(rejectRejections);
